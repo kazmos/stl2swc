@@ -11,7 +11,8 @@ Dependencies
 
 1. `CMake`
 2. `CGAL`
-3. `Eigen`
+3. `Eigen3`
+3. `Boost`
 
 Building
 --------
