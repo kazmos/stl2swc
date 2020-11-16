@@ -21,7 +21,7 @@ Building
 2. `cd build`
 3. `cmake ..`
 4. `make`
-5. `./stl2swc <stl-file> [<num-subdiv-steps> [<quality-speed-tradeoff [<medially-centered-speed-tradeoff>]]]`
+5. `./stl2swc <stl-file> <output-file> [<num-subdiv-steps> [<quality-speed-tradeoff [<medially-centered-speed-tradeoff>]]]`
 
 Parameters
 ----------
@@ -29,8 +29,8 @@ Parameters
 With the few experiment done so far, these seem like a useful set of parameters
 for neuronal meshes:
 
-`./stl2swc <stl-file> 1 0.3 0.4`
+`./stl2swc <stl-file> output.edges 1 0.3 0.4`
 
 The defaults used without explicit parameters are provided by CGAL:
 
-`./stl2swc <stl-file> 0 0.1 0.2`
+`./stl2swc <stl-file> output.edges 0 0.1 0.2`

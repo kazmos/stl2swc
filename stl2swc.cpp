@@ -47,24 +47,25 @@ struct Display_polylines{
 int main(int argc, char* argv[])
 {
   if (argc<2) {
-    std::cout << "Usage: stl2swc <input-file> [<num-subdiv-steps> [<quality-speed-tradeoff [<medially-centered-speed-tradeoff>]]]" << std::endl;
+    std::cout << "Usage: stl2swc <input-file> <output-file> [<num-subdiv-steps> [<quality-speed-tradeoff [<medially-centered-speed-tradeoff>]]]" << std::endl;
     return EXIT_FAILURE;
   }
   std::ifstream input(argv[1]);
+  std::ofstream output(argv[2]);
 
   int num_subdiv = 0;
-  if (argc > 2) { 
-    num_subdiv = std::stoi(argv[2]);
+  if (argc > 3) {
+    num_subdiv = std::stoi(argv[3]);
   }
 
   double quality_speed_tradeoff = 0.1;
-  if (argc > 3) {
-    quality_speed_tradeoff = std::stod(argv[3]);
+  if (argc > 4) {
+    quality_speed_tradeoff = std::stod(argv[4]);
   }
 
   double medially_centered_speed_tradeoff = 0.2;
-  if (argc > 4) {
-    medially_centered_speed_tradeoff = std::stod(argv[4]);
+  if (argc > 5) {
+    medially_centered_speed_tradeoff = std::stod(argv[5]);
   }
 
   std::vector<Point> points;
@@ -120,7 +121,6 @@ int main(int argc, char* argv[])
     }
   }
 
-  std::ofstream output("test.edges");
   for(Skeleton_edge e : CGAL::make_range(edges(skeleton)))
   {
     Point& s = skeleton[source(e, skeleton)].point;
